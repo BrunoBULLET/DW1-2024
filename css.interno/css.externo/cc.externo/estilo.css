@@ -1,0 +1,35 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap')
+
+*{
+    font-family: "Pixelify Sans", sans-serif;
+}
+body{
+    background-color: rgb(7, 154, 7);
+    text-align: center;
+    font-family:Arial, Helvetica, sans-serif;
+  
+h1{
+    font-size: 3rem;
+    background-color: greenyellow;
+    text-align: center;
+    font-weight: 200;
+   
+    
+}
+text{
+    background: linear-gradient();
+}
+.sublinhado{
+    text-shadow: 5px -1px rgb(103, 208, 4) ;
+
+}
+.rgb{
+    font-size: 4rem; /* Tamanho da fonte */
+    font-weight: bold; /* Negrito */
+    text-shadow: 0 0 5px rgb(255, 0, 0), /* Sombra vermelha */
+                 0 0 5px rgb(0, 255, 0), /* Sombra verde */
+                 0 0 5px rgb(0, 0, 255);
+}
+
+}
