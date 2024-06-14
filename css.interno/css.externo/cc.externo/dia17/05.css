@@ -73,7 +73,7 @@ ul.menu a:hover{
     background-color: red;
     position: fixed;
     bottom: 0;
-    left: 650px;
+    
     display: flex;
     align-items: center;
     justify-content: center;
