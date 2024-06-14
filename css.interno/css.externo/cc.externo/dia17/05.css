@@ -1,0 +1,81 @@
+
+.font {
+    font-family: "Tiny5", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+
+*{
+    font-family: "Tiny5", sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+
+}
+div{
+    
+    text-align: center;
+}
+div.container {
+    background-color: rgb(255, 0, 0);
+    width: 100%;
+    height: 100vh;
+    
+}
+div#cabecalho{
+    background-image: url(https://acdn.mitiendanube.com/stores/263/815/products/papel-de-parede-geometrico-prateado-21-d034218b0ad06fd0c015850863313011-1024-1024.jpg);
+    height: 70vh;
+    color: black;
+
+}
+div#secao1{
+    background-image: url(https://img.elo7.com.br/product/zoom/224AE58/papel-de-parede-fundo-alvenaria-de-cor-clara-papel-de-parede-hall.jpg);
+    width: 100%;
+    height: 70vh;
+    color: blue;
+}
+div#secao2{
+    background-image: url(https://img.elo7.com.br/product/zoom/230F255/papel-parede-pedras-fundo-tamanhos-diversos-2-50m-papel-de-parede.jpg);
+    width: 100%;
+    height: 70vh;
+    color: red;
+}
+ul.menu{
+    background-color: gray;
+}
+ul.menu li{
+    display: inline-block;
+    list-style: none;
+}
+ul.menu a{  
+    width: 120px;
+    padding: 10px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 15px;
+    color: white;
+    transition: 0.3s;
+    border: 1px solid rgb(0, 0, 0);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+ul.menu a:hover{
+    background-color: gray;
+    color: black;
+    border: 1px solid black;
+    
+}
+.voltar {
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    position: fixed;
+    bottom: 0;
+    left: 650px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
