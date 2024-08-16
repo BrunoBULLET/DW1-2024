@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formatador de Nome</title>
+    <script>
+        function formatarNomeIngles(nomeCompleto) {
+            partes = nomeCompleto.trim().split(' ');
+            
+            if (partes.length < 2) {
+                return 'Nome incompleto.';
+            }
+
+            sobrenome = partes.pop();
+            
+            nome = partes.join(' ');
+
+            return `${sobrenome}, ${nome}.`;
+        }
+
+        function formatar() {
+            // Obter o valor do campo de entrada
+            nomeCompleto = document.getElementById("nomeCompleto").value;
+
+            // Formatar o nome no estilo inglês
+            resultado = formatarNomeIngles(nomeCompleto);
+
+            // Exibir o resultado
+            document.getElementById("resultado").innerText = resultado;
+        }
+    </script>
+</head>
+<body>
+    <h1>Formatador de Nome</h1>
+    <label for="nomeCompleto">Nome completo:</label>
+    <input type="text" id="nomeCompleto">
+    <br>
+    <button onclick="formatar()">Formatar</button>
+    <p id="resultado"></p>
+</body>
+</html>

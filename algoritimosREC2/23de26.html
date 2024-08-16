@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encontrar Menor e Maior Valor</title>
+    <script>
+        function encontrarMinimoEMaximo(vetor) {
+            if (vetor.length === 0) return undefined;
+
+            minimo = Math.min(...vetor);
+            
+            maximo = Math.max(...vetor);
+            
+            return [minimo, maximo];
+        }
+
+        function mostrarMinimoEMaximo() {
+            input = document.getElementById("numeros").value;
+            numeros = input.split(',').map(num => parseInt(num.trim(), 10));
+
+            const [minimo, maximo] = encontrarMinimoEMaximo(numeros);
+
+            document.getElementById("resultado").innerText = "Menor valor: " + (minimo !== undefined ? minimo : "Nenhum número fornecido") +
+                ", Maior valor: " + (maximo !== undefined ? maximo : "Nenhum número fornecido");
+        }
+    </script>
+</head>
+<body>
+    <h1>Encontrar Menor e Maior Valor</h1>
+    <label for="numeros">Digite números separados por vírgula:</label>
+    <input type="text" id="numeros" placeholder="">
+    <br>
+    <button onclick="mostrarMinimoEMaximo()">Mostrar Menor e Maior Valor</button>
+    <p id="resultado"></p>
+</body>
+</html>

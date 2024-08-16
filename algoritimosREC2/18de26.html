@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inverter String</title>
+    <script>
+        function inverterString(str) {
+            // Dividir a string em um array de caracteres
+            arrayCaracteres = str.split('');
+            
+            // Reverter o array de caracteres
+            arrayInvertido = arrayCaracteres.reverse();
+            
+            // Juntar os caracteres de volta em uma string
+            stringInvertida = arrayInvertido.join('');
+            
+            return stringInvertida;
+        }
+
+        function inverter() {
+            str = document.getElementById("texto").value;
+
+            resultado = inverterString(str);
+
+            document.getElementById("resultado").innerText = "String invertida: " + resultado;
+        }
+    </script>
+</head>
+<body>
+    <h1>Inverter String</h1>
+    <label for="texto">Digite uma string:</label>
+    <input type="text" id="texto">
+    <br>
+    <button onclick="inverter()">Inverter String</button>
+    <p id="resultado"></p>
+</body>
+</html>

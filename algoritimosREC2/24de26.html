@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular Parcelas</title>
+    <script>
+        function calcularParcelas(valorProduto, taxaJurosMensal, quantidadeMeses) {
+            const valorTotal = valorProduto * Math.pow(1 + (taxaJurosMensal / 100), quantidadeMeses);
+            
+            const valorParcela = valorTotal / quantidadeMeses;
+            
+            return {
+                valorTotal: valorTotal.toFixed(2),
+                valorParcela: valorParcela.toFixed(2)
+            };
+        }
+
+        function mostrarParcelas() {
+            const valorProduto = parseFloat(document.getElementById("valorProduto").value);
+            const taxaJurosMensal = parseFloat(document.getElementById("taxaJurosMensal").value);
+            const quantidadeMeses = parseInt(document.getElementById("quantidadeMeses").value, 10);
+
+            const resultado = calcularParcelas(valorProduto, taxaJurosMensal, quantidadeMeses);
+
+            document.getElementById("resultado").innerText = 
+                `Valor Total: R$ ${resultado.valorTotal}\n` +
+                `Valor da Parcela: R$ ${resultado.valorParcela}`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Calcular Parcelas</h1>
+    <label for="valorProduto">Valor do Produto:</label>
+    <input type="number" id="valorProduto" placeholder="" step="0.01">
+    <br>
+    <label for="taxaJurosMensal">Taxa de Juros Mensal (%):</label>
+    <input type="number" id="taxaJurosMensal" placeholder="" step="0.01">
+    <br>
+    <label for="quantidadeMeses">Quantidade de Meses:</label>
+    <input type="number" id="quantidadeMeses" placeholder="" step="1">
+    <br>
+    <button onclick="mostrarParcelas()">Calcular Parcelas</button>
+    <p id="resultado"></p>
+</body>
+</html>

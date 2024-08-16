@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encontrar Maior Valor</title>
+    <script>
+        function encontrarMaiorValor(numeros) {
+            if (numeros.length === 0) return undefined;
+            
+            // Usar Math.max com o operador de espalhamento para encontrar o maior valor
+            return Math.max(...numeros);
+        }
+
+        function mostrarMaior() {
+            input = document.getElementById("numeros").value;
+            numeros = input.split(',').map(num => parseInt(num.trim(), 10));
+
+            maior = encontrarMaiorValor(numeros);
+
+            document.getElementById("resultado").innerText = "Maior valor: " + (maior !== undefined ? maior : "Nenhum número fornecido");
+        }
+    </script>
+</head>
+<body>
+    <h1>Encontrar Maior Valor</h1>
+    <label for="numeros">Digite números separados por vírgula:</label>
+    <input type="text" id="numeros" placeholder="">
+    <br>
+    <button onclick="mostrarMaior()">Mostrar Maior Valor</button>
+    <p id="resultado"></p>
+</body>
+</html>

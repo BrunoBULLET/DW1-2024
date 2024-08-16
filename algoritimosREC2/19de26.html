@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtrar Números Pares</title>
+    <script>
+        function filtrarPares(numeros) {
+            // Usar o método filter para criar um novo array com apenas os números pares
+            return numeros.filter(numero => numero % 2 === 0);
+        }
+
+        function mostrarPares() {
+            input = document.getElementById("numeros").value;
+            numeros = input.split(',').map(num => parseInt(num.trim(), 10));
+
+            pares = filtrarPares(numeros);
+
+            document.getElementById("resultado").innerText = "Números pares: " + pares.join(', ');
+        }
+    </script>
+</head>
+<body>
+    <h1>Filtrar Números Pares</h1>
+    <label for="numeros">Digite números separados por vírgula:</label>
+    <input type="text" id="numeros" placeholder="">
+    <br>
+    <button onclick="mostrarPares()">Mostrar Números Pares</button>
+    <p id="resultado"></p>
+</body>
+</html>

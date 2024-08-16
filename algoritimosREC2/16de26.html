@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Letras 'a'</title>
+    <script>
+        function contarLetrasA(frase) {
+            // Usar uma expressão regular para encontrar todas as ocorrências das letras 'a' e suas variações acentuadas
+            correspondencias = frase.match(/[aáàãâ]/gi);
+            
+            return correspondencias ? correspondencias.length : 0;
+        }
+
+        function contar() {
+            // Obter o valor do campo de entrada
+            frase = document.getElementById("frase").value;
+
+            resultado = contarLetrasA(frase);
+
+            
+            document.getElementById("resultado").innerText = "Quantidade de letras 'a': " + resultado;
+        }
+    </script>
+</head>
+<body>
+    <h1>Contador de Letras 'a'</h1>
+    <label for="frase">Digite uma frase:</label>
+    <input type="text" id="frase">
+    <br>
+    <button onclick="contar()">Contar Letras 'a'</button>
+    <p id="resultado"></p>
+</body>
+</html>

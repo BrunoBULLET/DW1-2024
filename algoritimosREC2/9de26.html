@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Desconto e Acréscimo</title>
+    <script>
+        function calcularDesconto(valor, porcentagem) {
+            const desconto = valor * (porcentagem / 100);
+            return valor - desconto;
+        }
+
+        function calcularAcrescimo(valor, porcentagem) {
+            const acrescimo = valor * (porcentagem / 100);
+            return valor + acrescimo;
+        }
+
+        function calcular() {
+            // Obter os valores dos campos de entrada
+            const valor = parseFloat(document.getElementById("valor").value);
+            const porcentagem = parseFloat(document.getElementById("porcentagem").value);
+
+            const valorComDesconto = calcularDesconto(valor, porcentagem);
+            const valorComAcrescimo = calcularAcrescimo(valor, porcentagem);
+
+            
+            document.getElementById("resultadoDesconto").innerText = "Valor com Desconto: R$ " + valorComDesconto.toFixed(2);
+            document.getElementById("resultadoAcrescimo").innerText = "Valor com Acréscimo: R$ " + valorComAcrescimo.toFixed(2);
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculadora de Desconto e Acréscimo</h1>
+    <label for="valor">Valor (R$):</label>
+    <input type="number" id="valor" step="any">
+    <br>
+    <label for="porcentagem">Porcentagem (%):</label>
+    <input type="number" id="porcentagem" step="any">
+    <br>
+    <button onclick="calcular()">Calcular</button>
+    <p id="resultadoDesconto">Valor com Desconto: </p>
+    <p id="resultadoAcrescimo">Valor com Acréscimo: </p>
+</body>
+</html>

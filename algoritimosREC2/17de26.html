@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Vogais</title>
+    <script>
+        function contarVogais(str) {
+            //O gi vai fazer aparecer todas as vogais no caso sendo minusculas e maiusculas
+            vogais = /[aeiouáéíóúãõâêîôû]/gi;
+            
+            correspondencias = str.match(vogais);
+            //Perguntar para o Professor sobre o ?
+            return correspondencias ? correspondencias.length : 0;
+        }
+
+        function contar() {
+            // Obter o valor do campo de entrada
+            str = document.getElementById("texto").value;
+
+            resultado = contarVogais(str);
+
+            document.getElementById("resultado").innerText = "Quantidade de vogais: " + resultado;
+        }
+    </script>
+</head>
+<body>
+    <h1>Contador de Vogais</h1>
+    <label for="texto">Digite um texto:</label>
+    <input type="text" id="texto">
+    <br>
+    <button onclick="contar()">Contar Vogais</button>
+    <p id="resultado"></p>
+</body>
+</html>
