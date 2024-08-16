@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            background-color: black;
+        }
+        .container{
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;background-color: gray;
+          
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+
+        }
+        .item1{
+            background-color: blue;
+            order: 2;
+            flex-grow: 1;
+        }
+        .item2{
+            background-color: green;
+            order: 1;
+            flex-grow: 1;
+        }
+        .item3{
+            background-color: red;
+            order: 1;
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="item1 box">1</div>
+        <div class="item2 box">2</div>
+        <div class="item3 box">3</div>
+    </div>
+
+</body>
+</html>
