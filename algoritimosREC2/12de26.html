@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Fibonacci</title>
+    <script>
+        function enesimoTermoFibonacci(n) {
+            if (n <= 0) return 0;
+            if (n === 1) return 1;
+
+            let a = 0, b = 1, termo;
+
+            for (let i = 2; i <= n; i++) {
+                termo = a + b;
+                a = b;
+                b = termo;
+            }
+
+            return termo;
+        }
+
+        function calcular() {
+            
+            const n = parseInt(document.getElementById("numero").value);
+
+            
+            const resultado = enesimoTermoFibonacci(n);
+
+           
+            document.getElementById("resultado").innerText = "O " + n + "º termo da sequência de Fibonacci é: " + resultado;
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculadora de Fibonacci</h1>
+    <label for="numero">Número inteiro positivo:</label>
+    <input type="number" id="numero" step="1" min="0">
+    <br>
+    <button onclick="calcular()">Calcular</button>
+    <p id="resultado"></p>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Distância entre Dois Pontos</title>
+    <script>
+        function calcularDistancia() {
+            const x1 = parseFloat(document.getElementById("x1").value);
+            const y1 = parseFloat(document.getElementById("y1").value);
+            const x2 = parseFloat(document.getElementById("x2").value);
+            const y2 = parseFloat(document.getElementById("y2").value);
+            
+            
+            const distancia = Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
+            
+            document.getElementById("resultado").innerText = "Distância: " + distancia.toFixed(2);
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculadora de Distância entre Dois Pontos</h1>
+    <label for="x1">x1:</label>
+    <input type="number" id="x1" step="any">
+    <br>
+    <label for="y1">y1:</label>
+    <input type="number" id="y1" step="any">
+    <br>
+    <label for="x2">x2:</label>
+    <input type="number" id="x2" step="any">
+    <br>
+    <label for="y2">y2:</label>
+    <input type="number" id="y2" step="any">
+    <br>
+    <button onclick="calcularDistancia()">Calcular Distância</button>
+    <p id="resultado">Distância: </p>
+</body>
+</html>

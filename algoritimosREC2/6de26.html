@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Notas</title>
+    <script>
+        // Função para calcular a média das notas
+        function calcularMedia(nota1, nota2, nota3, nota4) {
+            return (nota1 + nota2 + nota3 + nota4);
+        }
+
+        // Função para determinar o conceito com base na média
+        function determinarConceito(media) {
+            if (media >= 9) {
+                return "A";
+            } else if (media >= 7) {
+                return "B";
+            } else if (media >= 5) {
+                return "C";
+            } else {
+                return "D";
+            }
+        }
+
+        // Função para determinar a situação do aluno com base no conceito
+        function determinarSituacao(conceito) {
+            if (conceito === "A" || conceito === "B") {
+                return "Aprovado";
+            } else if (conceito === "C") {
+                return "Recuperação";
+            } else {
+                return "Reprovado";
+            }
+        }
+
+       
+        function calcularResultado() {
+            
+            const nota1 = parseFloat(document.getElementById("nota1").value);
+            const nota2 = parseFloat(document.getElementById("nota2").value);
+            const nota3 = parseFloat(document.getElementById("nota3").value);
+            const nota4 = parseFloat(document.getElementById("nota4").value);
+            
+           
+            const media = calcularMedia(nota1, nota2, nota3, nota4);
+            
+            const conceito = determinarConceito(media);
+            
+            
+            const situacao = determinarSituacao(conceito);
+            
+            
+            document.getElementById("media").innerText = "Média: " + media.toFixed(2);
+            document.getElementById("conceito").innerText = "Conceito: " + conceito;
+            document.getElementById("situacao").innerText = "Situação: " + situacao;
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculadora de Notas</h1>
+    <label for="nota1">Nota 1:</label>
+    <input type="number" id="nota1" step="any">
+    <br>
+    <label for="nota2">Nota 2:</label>
+    <input type="number" id="nota2" step="any">
+    <br>
+    <label for="nota3">Nota 3:</label>
+    <input type="number" id="nota3" step="any">
+    <br>
+    <label for="nota4">Nota 4:</label>
+    <input type="number" id="nota4" step="any">
+    <br>
+    <button onclick="calcularResultado()">Calcular Resultado</button>
+    <p id="media">Média: </p>
+    <p id="conceito">Conceito: </p>
+    <p id="situacao">Situação: </p>
+</body>
+</html>

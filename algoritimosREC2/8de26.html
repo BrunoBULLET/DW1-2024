@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Faixa Etária</title>
+    <script>
+        function determinarFaixaEtaria(idade) {
+            if (idade <= 12) {
+                return "Criança";
+            } else if (idade <= 18) {
+                return "Adolescente";
+            } else if (idade <= 60) {
+                return "Adulta";
+            } else {
+                return "Idosa";
+            }
+        }
+
+        function verificarFaixaEtaria() {
+            // Obter a idade do campo de entrada
+            idade = parseInt(document.getElementById("idade").value);
+            
+            
+            faixaEtaria = determinarFaixaEtaria(idade);
+            
+            
+            document.getElementById("resultado").innerText = "Faixa Etária: " + faixaEtaria;
+        }
+    </script>
+</head>
+<body>
+    <h1>Verificador de Faixa Etária</h1>
+    <label for="idade">Insira a idade:</label>
+    <input type="number" id="idade">
+    <br>
+    <button onclick="verificarFaixaEtaria()">Verificar Faixa Etária</button>
+    <p id="resultado">Faixa Etária: </p>
+</body>
+</html>

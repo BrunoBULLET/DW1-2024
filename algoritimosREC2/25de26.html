@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processar Idades</title>
+    <script>
+        // Função para verificar se um ano é bissexto
+        function ehBissexto(ano) {
+            return (ano % 4 === 0 && ano % 100 !== 0) || (ano % 400 === 0);
+        }
+
+        // Função para contar pessoas com mais de 21 anos
+        function contarMaisDe21(idades) {
+            return idades.filter(idade => idade > 21).length;
+        }
+
+        // Função para contar pessoas que nasceram em anos bissextos
+        function contarAnosBissextos(idades) {
+            const anoAtual = new Date().getFullYear();
+            return idades.filter(idade => ehBissexto(anoAtual - idade)).length;
+        }
+
+        // Função para somar todas as idades
+        function somarIdades(idades) {
+            return idades.reduce((soma, idade) => soma + idade, 0);
+        }
+
+        // Função para calcular a média das idades
+        function calcularMediaIdades(idades) {
+            const soma = somarIdades(idades);
+            return idades.length > 0 ? (soma / idades.length).toFixed(2) : 0;
+        }
+
+        // Função para processar a entrada do usuário
+        function processarEntradas() {
+            const input = document.getElementById("idades").value;
+            const idades = input.split(',').map(num => parseInt(num.trim(), 10));
+
+            const maisDe21 = contarMaisDe21(idades);
+            const anosBissextos = contarAnosBissextos(idades);
+            const soma = somarIdades(idades);
+            const media = calcularMediaIdades(idades);
+
+            document.getElementById("resultado").innerText = 
+                `Pessoas com mais de 21 anos: ${maisDe21}\n` +
+                `Pessoas nascidas em anos bissextos: ${anosBissextos}\n` +
+                `Soma das idades: ${soma}\n` +
+                `Média das idades: ${media}`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Processar Idades</h1>
+    <label for="idades">Digite as idades separadas por vírgula:</label>
+    <input type="text" id="idades" placeholder="20, 25, 30, 15, 40">
+    <br>
+    <button onclick="processarEntradas()">Processar</button>
+    <p id="resultado"></p>
+</body>
+</html>

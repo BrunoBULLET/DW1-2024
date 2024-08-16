@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soma dos Dígitos</title>
+    <script>
+        // Função para calcular a soma dos dígitos
+        function somaDosDigitos(numero) {
+            // Convertendo o número para string para iterar sobre cada dígito
+            const numeroStr = numero.toString();
+            
+            // Usando o método reduce para somar os dígitos
+            const soma = numeroStr.split('').reduce((acumulador, digito) => {
+                return acumulador + parseInt(digito, 10);
+            }, 0);
+            
+            return soma;
+        }
+
+        // Função para processar a entrada do usuário e exibir o resultado
+        function processarNumero() {
+            // Obter o valor do campo de entrada e converter para inteiro
+            const input = document.getElementById("numero").value;
+            const numero = parseInt(input, 10);
+            
+            // Verificar se o número é positivo
+            if (isNaN(numero) || numero <= 0) {
+                document.getElementById("resultado").innerText = "Por favor, insira um número inteiro positivo.";
+                return;
+            }
+            
+            // Calcular a soma dos dígitos
+            const resultado = somaDosDigitos(numero);
+            
+            // Exibir o resultado
+            document.getElementById("resultado").innerText = `A soma dos dígitos é: ${resultado}`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Calcular a Soma dos Dígitos</h1>
+    <label for="numero">Digite um número inteiro positivo:</label>
+    <input type="number" id="numero" placeholder="123" min="1">
+    <br>
+    <button onclick="processarNumero()">Calcular</button>
+    <p id="resultado"></p>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Hipotenusa</title>
+    <script>
+        function calcularHipotenusa() {
+            // Obter os valores dos catetos
+            b = parseFloat(document.getElementById("catetoOposto").value);
+            c = parseFloat(document.getElementById("catetoAdjacente").value);
+            
+            // Calcular a hipotenusa usando a fórmula de Pitágoras
+            const hipotenusa = Math.sqrt(Math.pow(b, 2) + Math.pow(c, 2));
+            
+            // Exibir o resultado no elemento de resultado
+            document.getElementById("resultado").innerText = "Hipotenusa: " + hipotenusa.toFixed(2);
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculadora de Hipotenusa</h1>
+    <label for="catetoOposto">B(b):</label>
+    <input type="number" id="catetoOposto" step="any">
+    <br>
+    <label for="catetoAdjacente">C(c):</label>
+    <input type="number" id="catetoAdjacente" step="any">
+    <br>
+    <button onclick="calcularHipotenusa()">Calcular Hipotenusa</button>
+    <p id="resultado">Hipotenusa: </p>
+</body>
+</html>
