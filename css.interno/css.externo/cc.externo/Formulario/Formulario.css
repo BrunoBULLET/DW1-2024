@@ -78,6 +78,27 @@ form{
     flex-direction: column;
     align-items: center;
 }
-.or{
+.ou{
     margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 65%;
+    background-color: rgb(255, 255, 255);
+    
+}
+.or{
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.linha{
+    height: 2px;
+    width: 100%;
+    background-color: gray;
+}
+.or p{
+    padding: 7px;
 }
