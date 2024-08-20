@@ -7,7 +7,9 @@
     <script>
         function calcularSoma(numero) {
             let soma = 0;
-            for (let i = 1; i <= numero; i++) {
+            for (let i = 1; i <= numero; i++ //i++ em JavaScript é o operador de incremento pós-fixado. Ele é usado para aumentar o valor de uma variável em 1, mas retorna o valor original da variável antes da incrementação.
+
+            ) {
                 soma += i;
             }
             return soma;

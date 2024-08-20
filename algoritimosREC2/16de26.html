@@ -8,8 +8,18 @@
         function contarLetrasA(frase) {
             // Usar uma expressão regular para encontrar todas as ocorrências das letras 'a' e suas variações acentuadas
             correspondencias = frase.match(/[aáàãâ]/gi);
+
+            //let texto = "O sol é quente e o sol brilha.";
+            //let correspondencias = texto.match(/sol/g); // Retorna todas as ocorrências de "sol"
+            //console.log(correspondencias); // Imprime ["sol", "sol"]
+
+            //gi faz com que ele pegue os a e A
             
-            return correspondencias ? correspondencias.length : 0;
+            if (correspondencias) {
+                return correspondencias.length;
+            } else {
+                return 0;
+            }
         }
 
         function contar() {

@@ -10,8 +10,12 @@
             vogais = /[aeiouáéíóúãõâêîôû]/gi;
             
             correspondencias = str.match(vogais);
-            //Perguntar para o Professor sobre o ?
-            return correspondencias ? correspondencias.length : 0;
+            
+            if (correspondencias) {
+                return correspondencias.length;
+            }  else {
+                return 0
+            }
         }
 
         function contar() {
