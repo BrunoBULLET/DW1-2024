@@ -17,13 +17,15 @@
 <script>
     function calcularGorjeta() {
         
-        valorConta = parseFloat(document.getElementById("valorConta").value);
+        valorConta = parseFloat // string e transformá-la em um número de ponto flutuante (ou seja, um número decimal).
+         (document.getElementById("valorConta").value // é usada para obter ou definir o valor de elementos de formulário HTML
+        );
         
         
         gorjeta = valorConta * 0.10;
         
        
-        document.getElementById("resultado").innerText = "Gorjeta: " + gorjeta.toFixed(2);
+        document.getElementById("resultado").innerText = "Gorjeta: " + gorjeta;
     }
 </script>
 </html>

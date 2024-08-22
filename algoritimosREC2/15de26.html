@@ -6,17 +6,38 @@
     <title>Formatador de Nome</title>
     <script>
         function formatarNomeIngles(nomeCompleto) {
-            partes = nomeCompleto.trim().split(' ');
+
+            partes = nomeCompleto.trim() //let texto = "   Olá, mundo!   ";
+                                         //let resultado = texto.trim();
+                                         //console.log(resultado); // Imprime "Olá, mundo!" sem os espaços extras no início e no final
+
             
-            if (partes.length < 2) {
+            
+            
+            .split(' ');
+            
+            if (partes.length   //let texto = "Olá, mundo!";
+                                //console.log(texto.length); // Imprime 12, pois a string "Olá, mundo!" tem 12 caracteres
+
+             < 2) {
                 return 'Nome incompleto.';
             }
 
-            sobrenome = partes.pop();
+            sobrenome = partes.pop()    //let frutas = ["maçã", "banana", "laranja"];
+                                        //let ultimaFruta = frutas.pop(); // Remove "laranja" do array e a retorna
+                                        //console.log(ultimaFruta); // Imprime "laranja"
+                                        //console.log(frutas); // Imprime ["maçã", "banana"]
+
+            
+            ;
             
             nome = partes.join(' ');
 
-            return `${sobrenome}, ${nome}.`;
+            return `${sobrenome}, ${nome}.`;        //let nome = "Maria";
+                                                    //let sobrenome = "Silva";
+                                                    //let mensagem = `${sobrenome}, ${nome}.`; // Interpola as variáveis dentro da string
+                                                    //console.log(mensagem); // Imprime "Silva, Maria."
+
         }
 
         function formatar() {
