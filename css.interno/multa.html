@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="multa.js" defer></script>
+    <style>
+        .container {
+            display: flex;
+        }
+        .contida {
+            width: 20%;
+            padding-left: 3.125rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sistema de multas</h1>
+    <div class="container">
+        <div class="contida">
+            <p>Velocidade máxima da via</p>
+            <input id="velmax" type="number">
+            <br>
+            <p>Velocidade do veículo</p>
+            <input id="velvei" type="number">
+            <br>
+            <br>
+            <button id="calcular" onclick="aplicarMulta()">Calcular</button>
+        </div>
+
+        <div class="contida">
+            <p>Multa por excesso de velocidade :</p>
+            <br>
+            <p><strong>R$ 150,00</strong> - Até 20% acima do limite permitido</p>
+            <p><strong>R$ 250,00</strong> - De 20% até 50% acima do limite permitido</p>
+            <p><strong>R$ 900,00</strong> - Acima de 50% do limite permitido</p>
+        </div>
+    </div>
+    <div id="saida">Resultado: </div>
+    
+</body>
+</html>
