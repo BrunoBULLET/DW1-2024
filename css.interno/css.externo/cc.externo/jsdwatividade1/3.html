@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Custo de Viagem</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Cálculo de Custo de Viagem</h1>
+        <div class="form-group">
+            <label for="distancia">Distância Percorrida (km):</label>
+            <input type="number" id="distancia" step="0.01" placeholder="Digite a distância percorrida">
+        </div>
+        <div class="form-group">
+            <label for="autonomia">Autonomia do Veículo (km/litro):</label>
+            <input type="number" id="autonomia" step="0.01" placeholder="Digite a autonomia do veículo">
+        </div>
+        <div class="form-group">
+            <label for="pedagio">Valor do Pedágio (R$):</label>
+            <input type="number" id="pedagio" step="0.01" placeholder="Digite o valor do pedágio">
+        </div>
+        <button onclick="calcularCustoViagem()">Calcular Custo</button>
+        <div class="result" id="resultado">
+            
+        </div>
+    </div>
+
+    <script>
+        function calcularCustoViagem() {
+            const distancia = parseFloat(document.getElementById('distancia').value);
+            const autonomia = parseFloat(document.getElementById('autonomia').value);
+            const pedagio = parseFloat(document.getElementById('pedagio').value);
+
+            if (isNaN(distancia) || distancia <= 0) {
+                alert('Por favor, insira uma distância válida.');
+                return;
+            }
+            if (isNaN(autonomia) || autonomia <= 0) {
+                alert('Por favor, insira uma autonomia válida.');
+                return;
+            }
+            if (isNaN(pedagio) || pedagio < 0) {
+                alert('Por favor, insira um valor válido para o pedágio.');
+                return;
+            }
+
+            const consumoCombustivel = distancia / autonomia;
+            const precoCombustivel = 4.50; 
+            const gastoCombustivel = consumoCombustivel * precoCombustivel;
+
+            const custoTotal = gastoCombustivel + pedagio;
+
+            document.getElementById('resultado').innerHTML = `
+                <h2>Custo da Viagem:</h2>
+                <p>Gasto com Combustível: R$ ${gastoCombustivel.toFixed(2)}</p>
+                <p>Valor do Pedágio: R$ ${pedagio.toFixed(2)}</p>
+                <p><strong>Custo Total: R$ ${custoTotal.toFixed(2)}</strong></p>
+            `;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação e Classificação de Triângulos</title>
+    <script>
+        function ehTriangulo(lado1, lado2, lado3) {
+            return (lado1 < lado2 + lado3 && lado1 > Math.abs(lado2 - lado3) &&
+                    lado2 < lado1 + lado3 && lado2 > Math.abs(lado1 - lado3) &&
+                    lado3 < lado1 + lado2 && lado3 > Math.abs(lado1 - lado2));
+        }
+
+        function classificarTriangulo(lado1, lado2, lado3) {
+            if (!ehTriangulo(lado1, lado2, lado3)) {
+                return "Não é um triângulo";
+            }
+
+            if (lado1 === lado2 && lado2 === lado3) {
+                return "Equilátero";
+            } else if (lado1 === lado2 || lado1 === lado3 || lado2 === lado3) {
+                return "Isósceles";
+            } else {
+                return "Escaleno";
+            }
+        }
+
+        function verificarTriangulo() {
+            var lado1 = parseFloat(document.getElementById("lado1").value);
+            var lado2 = parseFloat(document.getElementById("lado2").value);
+            var lado3 = parseFloat(document.getElementById("lado3").value);
+
+            var resultado = ehTriangulo(lado1, lado2, lado3);
+            var classificacao = classificarTriangulo(lado1, lado2, lado3);
+
+            if (resultado) {
+                document.getElementById("resultado").innerText = `Os lados formam um triângulo e é do tipo: ${classificacao}`;
+            } else {
+                document.getElementById("resultado").innerText = "Os lados NÃO formam um triângulo";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Verificação de Triângulo</h1>
+    <p>Informe os lados de um triângulo para verificar se eles formam um triângulo e qual a sua classificação:</p>
+
+    <label for="lado1">Lado 1:</label>
+    <input type="number" id="lado1" min="0" step="0.01"><br><br>
+
+    <label for="lado2">Lado 2:</label>
+    <input type="number" id="lado2" min="0" step="0.01"><br><br>
+
+    <label for="lado3">Lado 3:</label>
+    <input type="number" id="lado3" min="0" step="0.01"><br><br>
+
+    <button onclick="verificarTriangulo()">Verificar</button>
+
+    <p id="resultado"></p>
+</body>
+</html>

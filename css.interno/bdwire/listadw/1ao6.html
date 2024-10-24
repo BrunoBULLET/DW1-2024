@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios de Funções</title>
+    <script>
+        function imprimirCrescente(n) {
+            let resultado = '';
+            for (let i = 1; i <= n; i++) {
+                resultado += i + ' ';
+            }
+            return resultado;
+        }
+
+        function imprimirDecrescente(n) {
+            let resultado = '';
+            for (let i = n; i >= 1; i--) {
+                resultado += i + ' ';
+            }
+            return resultado;
+        }
+
+        function imprimirPares(n) {
+            let resultado = '';
+            for (let i = n; i >= 1; i--) {
+                if (i % 2 === 0) {
+                    resultado += i + ' ';
+                }
+            }
+            return resultado;
+        }
+
+        function ehPrimo(n) {
+            if (n < 2) return false;
+            for (let i = 2; i <= Math.sqrt(n); i++) {
+                if (n % i === 0) return false;
+            }
+            return true;
+        }
+
+        function imprimirNPrimos(n) {
+            let resultado = '';
+            let contador = 0;
+            let numero = 2;
+            while (contador < n) {
+                if (ehPrimo(numero)) {
+                    resultado += numero + ' ';
+                    contador++;
+                }
+                numero++;
+            }
+            return resultado;
+        }
+
+        function calcularFatorial(n) {
+            let fatorial = 1;
+            for (let i = n; i > 1; i--) {
+                fatorial *= i;
+            }
+            return fatorial;
+        }
+
+        function executarExercicio(exercicio) {
+            let n = parseInt(document.getElementById("valorN").value);
+            let resultado;
+
+            switch (exercicio) {
+                case 1:
+                    resultado = imprimirCrescente(n);
+                    break;
+                case 2:
+                    resultado = imprimirDecrescente(n);
+                    break;
+                case 3:
+                    resultado = imprimirPares(n);
+                    break;
+                case 4:
+                    resultado = ehPrimo(n) ? `${n} é primo` : `${n} não é primo`;
+                    break;
+                case 5:
+                    resultado = imprimirNPrimos(n);
+                    break;
+                case 6:
+                    resultado = `O fatorial de ${n} é ${calcularFatorial(n)}`;
+                    break;
+                default:
+                    resultado = "Exercício inválido.";
+            }
+
+            document.getElementById("resultado").innerText = resultado;
+        }
+    </script>
+</head>
+<body>
+    <h1>Exercícios de Funções com JavaScript</h1>
+    <p>Insira um valor para N e escolha o exercício:</p>
+
+    <label for="valorN">Valor de N:</label>
+    <input type="number" id="valorN" min="1"><br><br>
+
+    <button onclick="executarExercicio(1)">Exercício 01 - Crescente</button>
+    <button onclick="executarExercicio(2)">Exercício 02 - Decrescente</button>
+    <button onclick="executarExercicio(3)">Exercício 03 - Pares</button>
+    <button onclick="executarExercicio(4)">Exercício 04 - Primo</button>
+    <button onclick="executarExercicio(5)">Exercício 05 - N Primos</button>
+    <button onclick="executarExercicio(6)">Exercício 06 - Fatorial</button>
+
+    <p id="resultado"></p>
+</body>
+</html>
