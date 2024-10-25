@@ -13,6 +13,9 @@
         function mostrarPares() {
             input = document.getElementById("numeros").value;
             numeros = input.split(',').map(num => parseInt(num.trim(), 10));
+            
+
+            //.map() em JavaScript é utilizado para criar um novo array com os resultados da aplicação de uma função a cada elemento do array original. Ele não modifica o array original, mas retorna um novo array.
 
             pares = filtrarPares(numeros);
 

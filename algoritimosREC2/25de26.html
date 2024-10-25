@@ -1,61 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Processar Idades</title>
-    <script>
-        // Função para verificar se um ano é bissexto
-        function ehBissexto(ano) {
-            return (ano % 4 === 0 && ano % 100 !== 0) || (ano % 400 === 0);
-        }
-
-        // Função para contar pessoas com mais de 21 anos
-        function contarMaisDe21(idades) {
-            return idades.filter(idade => idade > 21).length;
-        }
-
-        // Função para contar pessoas que nasceram em anos bissextos
-        function contarAnosBissextos(idades) {
-            const anoAtual = new Date().getFullYear();
-            return idades.filter(idade => ehBissexto(anoAtual - idade)).length;
-        }
-
-        // Função para somar todas as idades
-        function somarIdades(idades) {
-            return idades.reduce((soma, idade) => soma + idade, 0);
-        }
-
-        // Função para calcular a média das idades
-        function calcularMediaIdades(idades) {
-            const soma = somarIdades(idades);
-            return idades.length > 0 ? (soma / idades.length).toFixed(2) : 0;
-        }
-
-        // Função para processar a entrada do usuário
-        function processarEntradas() {
-            const input = document.getElementById("idades").value;
-            const idades = input.split(',').map(num => parseInt(num.trim(), 10));
-
-            const maisDe21 = contarMaisDe21(idades);
-            const anosBissextos = contarAnosBissextos(idades);
-            const soma = somarIdades(idades);
-            const media = calcularMediaIdades(idades);
-
-            document.getElementById("resultado").innerText = 
-                `Pessoas com mais de 21 anos: ${maisDe21}\n` +
-                `Pessoas nascidas em anos bissextos: ${anosBissextos}\n` +
-                `Soma das idades: ${soma}\n` +
-                `Média das idades: ${media}`;
-        }
-    </script>
+    <title>Contagem de Idades</title>
 </head>
 <body>
-    <h1>Processar Idades</h1>
-    <label for="idades">Digite as idades separadas por vírgula:</label>
-    <input type="text" id="idades" placeholder="20, 25, 30, 15, 40">
-    <br>
-    <button onclick="processarEntradas()">Processar</button>
+
+    <label for="idades">Digite as idades separadas por vírgula:</label><br>
+    <input type="text" id="listaIdades" placeholder=""><br><br>
+
+    <label for="anos">Digite os anos de nascimento correspondentes, separados por vírgula:</label><br>
+    <input type="text" id="listaAnos" placeholder=""><br><br>
+
+    <button onclick="calcular()">Calcular</button>
+
     <p id="resultado"></p>
+
+    <script>
+        function contarMaioresDe21(listaIdades) {
+    
+    
+    
+    
+    
+            let totalMaiores21 = 0;
+            for (let i = 0; i < listaIdades.length; i++) {
+                if (listaIdades[i] > 21) {
+                    totalMaiores21++;
+                }
+            }
+            return totalMaiores21;
+        }
+
+        function contarAnosBissextos(listaAnos) {
+            let totalAnosBissextos = 0;
+
+            for (let i = 0; i < listaAnos.length; i++) {
+                let anoAtual = listaAnos[i];
+                if ((anoAtual % 4 === 0 && anoAtual % 100 !== 0) || (anoAtual % 400 === 0)) {
+                    totalAnosBissextos++;
+                }
+            }
+            return totalAnosBissextos;
+        }
+
+        function somarTodasIdades(listaIdades) {
+            let somaTotal = 0;
+            for (let i = 0; i < listaIdades.length; i++) {
+                somaTotal += listaIdades[i];
+            }
+            return somaTotal;
+        }
+
+        function calcularMediaIdades(listaIdades) {
+            let somaIdades = somarTodasIdades(listaIdades);
+            return somaIdades / listaIdades.length;
+        }
+
+        function processarDados() {
+            let textoIdades = document.getElementById("entradaIdades").value;
+            let textoAnos = document.getElementById("entradaAnos").value;
+
+            let listaIdades = textoIdades.split(",").map(Number);
+            let listaAnos = textoAnos.split(",").map(Number);
+
+            let quantidadeMaiores21 = contarMaioresDe21(listaIdades);
+            let quantidadeAnosBissextos = contarAnosBissextos(listaAnos);
+            let somaIdades = somarTodasIdades(listaIdades);
+            let mediaIdades = calcularMediaIdades(listaIdades);
+
+            let resultadoFinal = `
+                Quantidade de pessoas com mais de 21 anos: ${quantidadeMaiores21}<br>
+                Quantidade de pessoas nascidas em anos bissextos: ${quantidadeAnosBissextos}<br>
+                Soma de todas as idades: ${somaIdades}<br>
+                Média das idades: ${mediaIdades}
+            `;
+
+            document.getElementById("resultado").innerHTML = resultadoFinal;
+        }
+    </script>
 </body>
 </html>

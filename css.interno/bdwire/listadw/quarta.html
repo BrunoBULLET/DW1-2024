@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Dosagem de Medicamento</title>
+    <script>
+        // Função para calcular a dosagem
+        function calcularDosagem(idade, peso) {
+            let mgPorDose;
+
+            // Verifica a idade para diferenciar entre adultos/adolescentes e crianças
+            if (idade >= 12) {
+                // Adultos e adolescentes (>= 12 anos)
+                if (peso >= 60) {
+                    mgPorDose = 1000; // Pacientes com 60 kg ou mais tomam 1000 mg
+                } else {
+                    mgPorDose = 875;  // Pacientes com menos de 60 kg tomam 875 mg
+                }
+            } else {
+                // Crianças e adolescentes abaixo de 12 anos
+                if (peso >= 5 && peso <= 9) {
+                    mgPorDose = 125;
+                } else if (peso > 9 && peso <= 16) {
+                    mgPorDose = 250;
+                } else if (peso > 16 && peso <= 24) {
+                    mgPorDose = 500;
+                } else if (peso > 24) {
+                    mgPorDose = 750;
+                } else {
+                    return "Peso inválido para calcular a dosagem.";
+                }
+            }
+
+            // Calcula o número de gotas por dose
+            let mlPorDose = mgPorDose / 500;  // 1 ml contém 500 mg
+            let gotasPorDose = mlPorDose * 20;  // 1 ml = 20 gotas
+
+            return `O paciente deve tomar ${gotasPorDose.toFixed(0)} gotas por dose.`;
+        }
+
+        // Função para pegar os valores dos inputs e mostrar o resultado
+        function mostrarDosagem() {
+            var idade = parseFloat(document.getElementById("idade").value);
+            var peso = parseFloat(document.getElementById("peso").value);
+
+            if (isNaN(idade) || isNaN(peso) || idade <= 0 || peso <= 0) {
+                document.getElementById("resultado").innerText = "Por favor, insira valores válidos para idade e peso.";
+            } else {
+                var resultado = calcularDosagem(idade, peso);
+                document.getElementById("resultado").innerText = resultado;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculadora de Dosagem de Medicamento</h1>
+    <p>Insira a idade e o peso do paciente para calcular a quantidade de gotas por dose:</p>
+
+    <label for="idade">Idade (anos):</label>
+    <input type="number" id="idade" min="0" step="1"><br><br>
+
+    <label for="peso">Peso (kg):</label>
+    <input type="number" id="peso" min="0" step="0.1"><br><br>
+
+    <button onclick="mostrarDosagem()">Calcular Dosagem</button>
+
+    <p id="resultado"></p>
+</body>
+</html>

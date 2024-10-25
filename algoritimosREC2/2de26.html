@@ -11,10 +11,12 @@
             c = parseFloat(document.getElementById("catetoAdjacente").value);
             
             // Calcular a hipotenusa usando a fórmula de Pitágoras
-            const hipotenusa = Math.sqrt(Math.pow(b, 2) + Math.pow(c, 2));
+            const hipotenusa = Math.sqrt //transforma em raiz
+            (Math.pow //ele um numero ao expoente por exemplo o 2
+            (b, 2) + Math.pow(c, 2));
             
             // Exibir o resultado no elemento de resultado
-            document.getElementById("resultado").innerText = "Hipotenusa: " + hipotenusa.toFixed(2);
+            document.getElementById("resultado").innerText = "Hipotenusa: " + hipotenusa;
         }
     </script>
 </head>

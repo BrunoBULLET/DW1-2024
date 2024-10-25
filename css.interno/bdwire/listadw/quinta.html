@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversão de Centímetros</title>
+    <script>
+        function converterMedida(valorEmCm, unidadeDestino) {
+            let resultado;
+
+            if (unidadeDestino === "m") {
+                resultado = valorEmCm / 100;  
+            } else if (unidadeDestino === "mm") {
+                resultado = valorEmCm * 10;   
+            } else if (unidadeDestino === "km") {
+                resultado = valorEmCm / 100000;  
+            } else {
+                return "Unidade inválida. Por favor, insira 'm', 'mm' ou 'km'.";
+            }
+
+            return `A medida convertida é ${resultado} ${unidadeDestino}`;
+        }
+
+        // nao consegui fazer a questao 6 e 7
+        function mostrarResultado() {
+            var valorEmCm = parseFloat(document.getElementById("valorCm").value);
+            var unidadeDestino = document.getElementById("unidadeDestino").value.toLowerCase();
+
+            if (isNaN(valorEmCm) || valorEmCm <= 0) {
+                document.getElementById("resultado").innerText = "Por favor, insira um valor válido em centímetros.";
+            } else {
+                var resultado = converterMedida(valorEmCm, unidadeDestino);
+                document.getElementById("resultado").innerText = resultado;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Conversor de Medidas (Centímetros)</h1>
+    <p>Insira o valor em centímetros e escolha a unidade para converter:</p>
+
+    <label for="valorCm">Valor em centímetros:</label>
+    <input type="number" id="valorCm" min="0" step="0.01"><br><br>
+
+    <label for="unidadeDestino">Unidade de conversão (m, mm, km):</label>
+    <input type="text" id="unidadeDestino"><br><br>
+
+    <button onclick="mostrarResultado()">Converter</button>
+
+    <p id="resultado"></p>
+ 
+</body>
+</html>

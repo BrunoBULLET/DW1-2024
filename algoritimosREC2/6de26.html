@@ -7,7 +7,7 @@
     <script>
         // Função para calcular a média das notas
         function calcularMedia(nota1, nota2, nota3, nota4) {
-            return (nota1 + nota2 + nota3 + nota4);
+            return (nota1 + nota2 + nota3 + nota4)/4;
         }
 
         // Função para determinar o conceito com base na média
@@ -51,7 +51,7 @@
             const situacao = determinarSituacao(conceito);
             
             
-            document.getElementById("media").innerText = "Média: " + media.toFixed(2);
+            document.getElementById("media").innerText = "Média: " + media;
             document.getElementById("conceito").innerText = "Conceito: " + conceito;
             document.getElementById("situacao").innerText = "Situação: " + situacao;
         }

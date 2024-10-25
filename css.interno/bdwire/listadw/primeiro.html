@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classificação de Atletas</title>
+    <script>
+        function classificarAtleta() {
+            var idade = document.getElementById("idade").value;
+            var classificacao = "";
+
+            if (idade >= 5 && idade <= 7) {
+                classificacao = "Infantil A";
+            } else if (idade >= 8 && idade <= 10) {
+                classificacao = "Infantil B";
+            } else if (idade >= 11 && idade <= 13) {
+                classificacao = "Juvenil A";
+            } else if (idade >= 14 && idade <= 17) {
+                classificacao = "Juvenil B";
+            } else if (idade >= 18) {
+                classificacao = "Adulto";
+            } else {
+                classificacao = "Idade não se encaixa nas categorias";
+            }
+
+            document.getElementById("resultado").innerText = "Classificação: " + classificacao;
+        }
+    </script>
+</head>
+<body>
+    <h1>Classificação de Atletas</h1>
+    <label for="idade">Informe a idade do atleta:</label>
+    <input type="number" id="idade" min="1" max="100">
+    <button onclick="classificarAtleta()">Classificar</button>
+
+    <p id="resultado"></p>
+</body>
+</html>
