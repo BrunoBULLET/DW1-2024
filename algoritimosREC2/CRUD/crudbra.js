@@ -87,6 +87,7 @@ function salvar() {
             case 'inserindo':
                 brawler = new Brawler(id, nome, nivel, poderEstrela, acessorio, raridade, engrenagem);
                 listaBrawler.push(brawler);
+                fetch("localhost:8080/inserir",{})
                 mostrarAviso("Inserido na lista");
                 break;
             case 'alterando':
