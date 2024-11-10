@@ -87,7 +87,30 @@ function salvar() {
             case 'inserindo':
                 brawler = new Brawler(id, nome, nivel, poderEstrela, acessorio, raridade, engrenagem);
                 listaBrawler.push(brawler);
-                fetch("localhost:8080/inserir",{})
+                const params = new URLSearchParams({
+                        id: id,
+                        nome: nome,
+                        nivel: nivel,
+                        poderEstrela: poderEstrela,
+                        acessorio: acessorio,
+                        raridade: raridade,
+                        engrenagem: engrenagem,
+                }).toString()
+                fetch("http://localhost:8080/inserir?"+params,{
+                    method: "GET",
+                    headers: {"Content-Type":"application/json"},
+                    mode: 'no-cors',
+                    // body: JSON.stringify({
+                    //     id: 2,
+                    //     nome: "w",
+                    //     nivel: 2,
+                    //     poderEstrela: 2,
+                    //     acessorio: 2,
+                    //     raridade: 2,
+                    //     engrenagem: 2,
+                    // }),
+                    
+                })
                 mostrarAviso("Inserido na lista");
                 break;
             case 'alterando':
@@ -125,12 +148,13 @@ function preparaListagem(vetor) {
         const linha = vetor[i];
         texto +=
             linha.id + " - " +
-            linha.nome + " - " +
-            linha.nivel + " - " +
-            linha.poderEstrela + " - " +
-            linha.acessorio + " - " +
-            linha.raridade + " - " +
+            linha.nome + "nome - " +
+            linha.nivel + "nivel - " +
+            linha.poderEstrela + "poder - " +
+            linha.acessorio + "acessorio - " +
+            linha.raridade + "raridade - " +
             linha.engrenagem + "<br>";
+
     }
     return texto;
 }
