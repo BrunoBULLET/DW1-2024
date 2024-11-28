@@ -11,9 +11,7 @@ const connection = mysql2.createConnection({
     password: "root123"
 })
 
-connection.query("SELECT * FROM mydb.status;",(err,results)=>{
-    console.log(results)
-})
+
 
 const app = express()
 app.use(express.json())
@@ -34,9 +32,20 @@ app.get("/inserir",(req,res)=>{
         req.query.raridade,
         req.query.engrenagem,
         ],(err,results)=>{
-            console.log(results)
+            
         }
     )   
 })
 
+app.get("/select",(req,res)=>{
+    connection.query("SELECT * FROM mydb.status;",(err,results)=>{
+        console.log(results)
+        res.json({results: results})
+    })
+
+})
+
+
+
 app.listen(8080)
+

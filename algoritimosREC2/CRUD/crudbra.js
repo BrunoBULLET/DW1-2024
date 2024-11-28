@@ -3,7 +3,22 @@ let oQueEstaFazendo = ''; // variável global de controle
 let brawler = null; // variável global 
 bloquearAtributos(true);
 
-// Função para procurar um brawler pela chave primária
+
+fetch("http://localhost:8080/select",{
+    method: "GET",
+    headers: {},
+    mode: 'no-cors',
+}).then((resposta) => {
+    
+    console.log(resposta)
+    return resposta.json(); // Converte o corpo da resposta para JSON
+})
+.then((dados) => console.log(dados)) // Exibe os dados da resposta
+
+
+
+
+
 function procurePorChavePrimaria(chave) {
     for (let i = 0; i < listaBrawler.length; i++) {
         const brawler = listaBrawler[i];
@@ -12,10 +27,9 @@ function procurePorChavePrimaria(chave) {
             return listaBrawler[i];
         }
     }
-    return null; // não achou
+    return null; 
 }
 
-// Função para procurar um elemento pela chave primária
 function procure() {
     const id = document.getElementById("inputId").value;
     if (isNaN(id) || !Number.isInteger(Number(id))) {
@@ -118,6 +132,11 @@ function salvar() {
                 listaBrawler[brawler.posicaoNaLista] = brawlerAlterado;
                 mostrarAviso("Alterado");
                 break;
+
+
+
+
+
             case 'excluindo':
                 let novaLista = [];
                 for (let i = 0; i < listaBrawler.length; i++) {
@@ -147,13 +166,13 @@ function preparaListagem(vetor) {
     for (let i = 0; i < vetor.length; i++) {
         const linha = vetor[i];
         texto +=
-            linha.id + " - " +
-            linha.nome + "nome - " +
-            linha.nivel + "nivel - " +
-            linha.poderEstrela + "poder - " +
-            linha.acessorio + "acessorio - " +
-            linha.raridade + "raridade - " +
-            linha.engrenagem + "<br>";
+           " ID:  "+ linha.id + " | " +
+           " NOME:  "+ linha.nome + " | " +
+           " NIVEL:  "+ linha.nivel + " | " +
+           "PODER ESTRELA:  "+ linha.poderEstrela + " | " +
+           "ACESSÓRIO:  "+ linha.acessorio + " | " +
+           "RARIDADE:  "+ linha.raridade + " | " +
+           "ENGRENAGEM:  "+ linha.engrenagem + "<br>";
 
     }
     return texto;

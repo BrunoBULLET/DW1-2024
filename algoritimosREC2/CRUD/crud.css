@@ -1,0 +1,11 @@
+
+/* Estilo para o body */
+body {
+    margin: 0; /* Remove margens padrão */
+    height: 100vh; /* Define que o body ocupa 100% da altura da tela */
+    background-image: url(https://wallpapercave.com/wp/wp8663646.jpg); /* Substitua pelo caminho da sua imagem */
+    background-repeat: no-repeat; /* Evita repetição da imagem */
+    background-position: center; /* Centraliza a imagem na horizontal e vertical */
+    background-size: contain; /* Faz com que a imagem inteira seja visível na tela */
+}
+
