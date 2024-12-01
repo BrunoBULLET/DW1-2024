@@ -6,14 +6,16 @@ bloquearAtributos(true);
 
 fetch("http://localhost:8080/select",{
     method: "GET",
-    headers: {},
-    mode: 'no-cors',
 }).then((resposta) => {
-    
-    console.log(resposta)
-    return resposta.json(); // Converte o corpo da resposta para JSON
+    return resposta.json(); 
 })
-.then((dados) => console.log(dados)) // Exibe os dados da resposta
+.then((dados) => {
+    console.log(dados)
+    for (const element of dados.results) {
+        listaBrawler.push(new Brawler(element.idstatus, element.nome, element.nivel, element.estrela, element.aces, element.raridade, element.engrenagem));
+    }
+    listar()
+}) 
 
 
 
@@ -101,7 +103,11 @@ function salvar() {
             case 'inserindo':
                 brawler = new Brawler(id, nome, nivel, poderEstrela, acessorio, raridade, engrenagem);
                 listaBrawler.push(brawler);
-                const params = new URLSearchParams({
+                
+                fetch("http://localhost:8080/inserir",{
+                    method: "POST",
+                    headers: {"Content-Type":"application/json"},
+                    body: JSON.stringify({
                         id: id,
                         nome: nome,
                         nivel: nivel,
@@ -109,20 +115,7 @@ function salvar() {
                         acessorio: acessorio,
                         raridade: raridade,
                         engrenagem: engrenagem,
-                }).toString()
-                fetch("http://localhost:8080/inserir?"+params,{
-                    method: "GET",
-                    headers: {"Content-Type":"application/json"},
-                    mode: 'no-cors',
-                    // body: JSON.stringify({
-                    //     id: 2,
-                    //     nome: "w",
-                    //     nivel: 2,
-                    //     poderEstrela: 2,
-                    //     acessorio: 2,
-                    //     raridade: 2,
-                    //     engrenagem: 2,
-                    // }),
+                    }),
                     
                 })
                 mostrarAviso("Inserido na lista");
@@ -130,6 +123,20 @@ function salvar() {
             case 'alterando':
                 const brawlerAlterado = new Brawler(id, nome, nivel, poderEstrela, acessorio, raridade, engrenagem);
                 listaBrawler[brawler.posicaoNaLista] = brawlerAlterado;
+                fetch("http://localhost:8080/alterar",{
+                    method: "PUT",
+                    headers: {"Content-Type":"application/json"},
+                    body: JSON.stringify({
+                        id: id,
+                        nome: nome,
+                        nivel: nivel,
+                        poderEstrela: poderEstrela,
+                        acessorio: acessorio,
+                        raridade: raridade,
+                        engrenagem: engrenagem,
+                    }),
+                    
+                })
                 mostrarAviso("Alterado");
                 break;
 
@@ -145,6 +152,9 @@ function salvar() {
                     }
                 }
                 listaBrawler = novaLista;
+                fetch("http://localhost:8080/delete/"+id,{
+                    method: "DELETE"
+                })
                 mostrarAviso("EXCLUÍDO");
                 break;
             default:
