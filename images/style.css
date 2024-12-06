@@ -99,6 +99,6 @@ nav a:hover{
 }
 @media (min-width: 640px){
     .hideDesktop{
-        display: no;
+        display: none;
     }
 }
