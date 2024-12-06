@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>CRUD Nota</title>
+</head>
+
+<body>
+
+   <h1>Cadastro de Nota</h1>
+
+   <label for="inputra">RA</label>
+   <input type="number" name="inputra" id="inputra">
+   <input type="button" value="Procure" id="btProcure" onclick="procure()" style="display:inline;">
+   <input type="button" value="Inserir" id="btInserir" onclick="inserir()" style="display:none;">
+   <input type="button" value="Alterar" id="btAlterar" onclick="alterar()" style="display:none;">
+   <input type="button" value="Excluir" id="btExcluir" onclick="excluir()" style="display:none;">
+   <br><br>
+
+   <label for="inputnome">Nome</label>
+   <input type="text" name="inputnome" id="inputnome">
+   <br>
+   <label for="inputnota1">Nota1</label>
+   <input type="number" name="inputnota1" id="inputnota1">
+   <br>
+   <label for="inputnota2">Nota2</label>
+   <input type="number" name="inputnota2" id="inputnota2">
+   <br>
+   <label for="inputnota3">Nota3</label>
+   <input type="number" name="inputnota3" id="inputnota3">
+   <br>
+   <label for="inputnota4">Nota4</label>
+   <input type="number" name="inputnota4" id="inputnota4">
+   <br>
+
+   <br><br>
+   <div id="divAviso" style="background-color: antiquewhite;"></div>
+   <br>
+   <input type="button" value="Salvar" id="btSalvar" onclick="salvar()" style="display:none;">
+   <input type="button" value="Cancelar" id="btCancelar" onclick="cancelarOperacao()" style="display:none;">
+   <br><br>
+
+   <div id="outputSaida" style="background-color: aqua;">...</div>
+
+   <script src="./provalgoritmos.js"></script>
+   <script src="./provaalgoritmos.js"></script>
+</body>
+
+</html>
