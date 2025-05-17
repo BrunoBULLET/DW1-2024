@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Exemplo geral que eu consegui fazer</title>
+  <style>
+    .destaque {
+      background-color: rgba(0, 26, 255, 0.249);
+      color: rgb(199, 18, 18);
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="minhaDiv">Texto original</div>
+  <button onclick="mudarEstilo()">Mudar estilo via JS</button>
+  <button onclick="toggleClasse()">Alternar classe</button>
+  <button onclick="removerEstilo()">Remover estilo</button>
+
+  <script>
+    const div = document.getElementById("minhaDiv");
+
+    function mudarEstilo() {
+      div.style.backgroundColor = "lightblue";
+      div.style.color = "darkblue";
+      div.style.fontSize = "24px";
+    }
+
+    function toggleClasse() {
+      div.classList.toggle("destaque");
+    }
+
+    function removerEstilo() {
+      div.style.removeProperty("background-color");
+      div.style.removeProperty("color");
+      div.style.removeProperty("font-size");
+      div.classList.remove("destaque");
+    }
+  </script>
+
+</body>
+</html>
